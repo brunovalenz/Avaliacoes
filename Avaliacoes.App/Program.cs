@@ -1,3 +1,5 @@
+using Avaliacoes.App.Infra;
+
 namespace Avaliacoes.App
 {
     internal static class Program
@@ -8,10 +10,11 @@ namespace Avaliacoes.App
         [STAThread]
         static void Main()
         {
+            ConfigureDI.ConfiguraServices();
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new FormPrincipal());
         }
     }
 }

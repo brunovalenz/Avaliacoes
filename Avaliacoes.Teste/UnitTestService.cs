@@ -4,16 +4,16 @@ using Avaliacoes.Domain.Base;
 using Avaliacoes.Repository.Context;
 using Avaliacoes.Repository.Repository;
 using Avaliacoes.Service.Services;
-using IFSPStore.Domain.Base;
-using IFSPStore.Domain.Entities;
-using IFSPStore.Repository.Context;
-using IFSPStore.Repository.Repository;
-using IFSPStore.Service.Services;
-using IFSPStore.Service.Validators;
+using Avaliacoes.Domain.Base;
+using Avaliacoes.Domain.Entities;
+using Avaliacoes.Repository.Context;
+using Avaliacoes.Repository.Repository;
+using Avaliacoes.Service.Services;
+using Avaliacoes.Service.Validators;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace IFSPStore.Teste
+namespace Avaliacoes.Teste
 {
     [TestClass]
     public class UnitTestService

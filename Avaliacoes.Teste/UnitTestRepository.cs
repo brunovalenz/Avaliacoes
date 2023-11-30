@@ -1,9 +1,9 @@
 ﻿using System.Text.Json;
 using System.Text.RegularExpressions;
-using IFSPStore.Domain.Entities;
+using Avaliacoes.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace IFSPStore.Teste
+namespace Avaliacoes.Teste
 {
     [TestClass]
     public class UnitTestRepository
