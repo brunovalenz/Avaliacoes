@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Avaliacoes.App.Cadastros;
 using Avaliacoes.App.Models;
-using Avaliacoes.App.Outros;
+//using Avaliacoes.App.Outros;
 using Avaliacoes.Domain.Base;
 using Avaliacoes.Domain.Entities;
 using Avaliacoes.Repository.Context;
@@ -53,7 +53,6 @@ namespace Avaliacoes.App.Infra
             Services.AddScoped<IBaseService<Avaliacao>, BaseService<Avaliacao>>();
 
             // Formulários
-            Services.AddTransient<NovaAvaliacao, NovaAvaliacao>();
             Services.AddTransient<CadastroFilmes, CadastroFilmes>();
             Services.AddTransient<CadastroMusicas, CadastroMusicas>();
             Services.AddTransient<CadastroLivros, CadastroLivros>();
