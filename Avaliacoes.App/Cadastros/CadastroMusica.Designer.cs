@@ -1,6 +1,6 @@
 ﻿namespace Avaliacoes.App.Cadastros
 {
-    partial class CadastroMusicas
+    partial class CadastroMusica
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             txtArtista = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtDuracao = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
+            txtDuracao = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             SuspendLayout();
+            // 
+            // txtAnoLanca
+            // 
+            txtAnoLanca.TabIndex = 1;
             // 
             // txtArtista
             // 
@@ -65,48 +69,36 @@
             // 
             // txtDuracao
             // 
-            txtDuracao.AllowPromptAsInput = true;
             txtDuracao.AnimateReadOnly = false;
-            txtDuracao.AsciiOnly = false;
+            txtDuracao.AutoCompleteMode = AutoCompleteMode.None;
+            txtDuracao.AutoCompleteSource = AutoCompleteSource.None;
             txtDuracao.BackgroundImageLayout = ImageLayout.None;
-            txtDuracao.BeepOnError = false;
-            txtDuracao.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
+            txtDuracao.CharacterCasing = CharacterCasing.Normal;
             txtDuracao.Depth = 0;
             txtDuracao.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtDuracao.HidePromptOnLeave = false;
             txtDuracao.HideSelection = true;
             txtDuracao.Hint = "Duração (min)";
-            txtDuracao.InsertKeyMode = InsertKeyMode.Default;
             txtDuracao.LeadingIcon = null;
-            txtDuracao.Location = new Point(453, 224);
-            txtDuracao.Mask = "9999/";
+            txtDuracao.Location = new Point(452, 224);
             txtDuracao.MaxLength = 32767;
             txtDuracao.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtDuracao.Name = "txtDuracao";
             txtDuracao.PasswordChar = '\0';
             txtDuracao.PrefixSuffixText = null;
-            txtDuracao.PromptChar = '_';
             txtDuracao.ReadOnly = false;
-            txtDuracao.RejectInputOnFirstFailure = false;
-            txtDuracao.ResetOnPrompt = true;
-            txtDuracao.ResetOnSpace = true;
             txtDuracao.RightToLeft = RightToLeft.No;
             txtDuracao.SelectedText = "";
             txtDuracao.SelectionLength = 0;
             txtDuracao.SelectionStart = 0;
             txtDuracao.ShortcutsEnabled = true;
-            txtDuracao.Size = new Size(173, 48);
-            txtDuracao.SkipLiterals = true;
+            txtDuracao.Size = new Size(174, 48);
             txtDuracao.TabIndex = 5;
             txtDuracao.TabStop = false;
-            txtDuracao.Text = "    /";
             txtDuracao.TextAlign = HorizontalAlignment.Left;
-            txtDuracao.TextMaskFormat = MaskFormat.IncludeLiterals;
             txtDuracao.TrailingIcon = null;
             txtDuracao.UseSystemPasswordChar = false;
-            txtDuracao.ValidatingType = null;
             // 
-            // CadastroMusicas
+            // CadastroMusica
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -114,8 +106,14 @@
             Controls.Add(txtDuracao);
             Controls.Add(txtArtista);
             Location = new Point(0, 0);
-            Name = "CadastroMusicas";
+            Name = "CadastroMusica";
             Text = "Cadastro Musica";
+            Controls.SetChildIndex(btnAdd, 0);
+            Controls.SetChildIndex(btnCancel, 0);
+            Controls.SetChildIndex(txtTitulo, 0);
+            Controls.SetChildIndex(txtDescricao, 0);
+            Controls.SetChildIndex(cboClassificacao, 0);
+            Controls.SetChildIndex(txtAnoLanca, 0);
             Controls.SetChildIndex(txtArtista, 0);
             Controls.SetChildIndex(txtDuracao, 0);
             ResumeLayout(false);
@@ -125,6 +123,6 @@
         #endregion
 
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtArtista;
-        private ReaLTaiizor.Controls.MaterialMaskedTextBox txtDuracao;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDuracao;
     }
 }

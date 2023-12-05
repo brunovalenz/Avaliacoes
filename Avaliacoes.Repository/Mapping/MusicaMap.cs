@@ -4,20 +4,20 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Avaliacoes.Repository.Mapping
 {
-    public class MusicasMap : IEntityTypeConfiguration<Musicas>
+    public class MusicaMap : IEntityTypeConfiguration<Musica>
     {
-        public void Configure(EntityTypeBuilder<Musicas> builder)
+        public void Configure(EntityTypeBuilder<Musica> builder)
         {
-            builder.ToTable("Musicas");
+            builder.ToTable("Musica");
 
             builder.HasKey(prop => prop.Id);
-
-            builder.HasKey(prop => prop.Midia);
 
             builder.Property(prop => prop.Artista)
                 .HasColumnType("varchar(100)");
 
             builder.Property(prop => prop.Duracao);
+
+            builder.HasOne(prop => prop.Midia);
         }
     }
 }

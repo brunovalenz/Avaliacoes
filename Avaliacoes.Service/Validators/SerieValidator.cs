@@ -3,9 +3,9 @@ using Avaliacoes.Domain.Entities;
 
 namespace Avaliacoes.Service.Validators
 {
-    public class SeriesValidator : AbstractValidator<Series>
+    public class SerieValidator : AbstractValidator<Serie>
     {
-        public SeriesValidator()
+        public SerieValidator()
         {
             RuleFor(c => c.Diretor)
                 .NotEmpty().WithMessage("Por favor informe o diretor.")

@@ -3,9 +3,9 @@ using Avaliacoes.Domain.Entities;
 
 namespace Avaliacoes.Service.Validators
 {
-    public class MidiasValidator : AbstractValidator<Midias>
+    public class MidiaValidator : AbstractValidator<Midia>
     {
-        public MidiasValidator()
+        public MidiaValidator()
         {
             RuleFor(c => c.Titulo)
                 .NotEmpty().WithMessage("Por favor informe o titulo.")

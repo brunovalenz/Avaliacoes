@@ -2,21 +2,21 @@
 
 namespace Avaliacoes.Domain.Entities
 {
-    public class Series : BaseEntity<int>
+    public class Serie : BaseEntity<int>
     {
-        public Series()
+        public Serie()
         {
 
         }
 
-        public Series(int id, Midias? midia, string? diretor, int? qntEps) : base(id)
+        public Serie(int id, Midia? midia, string? diretor, int? qntEps) : base(id)
         {
             Midia = midia;
             Diretor = diretor;
             QntEps = qntEps;
         }
 
-        public Midias? Midia { get; set; }
+        public Midia? Midia { get; set; }
         public string? Diretor { get; set; }
         public int? QntEps { get; set; }
     }

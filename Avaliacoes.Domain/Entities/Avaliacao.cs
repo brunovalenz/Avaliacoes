@@ -9,7 +9,7 @@ namespace Avaliacoes.Domain.Entities
 
         }
 
-        public Avaliacao(int id, Midias? midia, float? nota, string? avaliacao, DateTime? dataAvaliacao) : base(id)
+        public Avaliacao(int id, Midia? midia, float? nota, string? avaliacao, DateTime? dataAvaliacao) : base(id)
         {
             Midia = midia;
             Nota = nota;
@@ -17,7 +17,7 @@ namespace Avaliacoes.Domain.Entities
             DataAvaliacao = dataAvaliacao;
         }
 
-        public Midias? Midia { get; set; }
+        public Midia? Midia { get; set; }
         public float? Nota { get; set; }
         public string? Avaliacao2 { get; set; }
         public DateTime? DataAvaliacao { get; set; }

@@ -2,14 +2,14 @@
 
 namespace Avaliacoes.Domain.Entities
 {
-    public class Midias : BaseEntity<int>
+    public class Midia : BaseEntity<int>
     {
-        public Midias()
+        public Midia()
         {
 
         }
 
-        public Midias(int id, string titulo, int? anoLancamento, string? descricao, string? classificacao) : base(id)
+        public Midia(int id, string titulo, int? anoLancamento, string? descricao, string? classificacao) : base(id)
         {
             Titulo = titulo;
             AnoLancamento = anoLancamento;

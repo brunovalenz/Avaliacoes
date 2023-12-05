@@ -2,21 +2,21 @@
 
 namespace Avaliacoes.Domain.Entities
 {
-    public class Musicas : BaseEntity<int>
+    public class Musica : BaseEntity<int>
     {
-        public Musicas()
+        public Musica()
         {
 
         }
 
-        public Musicas(int id, Midias? midia, string? artista, int? duracao) : base(id)
+        public Musica(int id, Midia? midia, string? artista, int? duracao) : base(id)
         {
             Midia = midia;
             Artista = artista;
             Duracao = duracao;
         }
 
-        public Midias? Midia { get; set; }
+        public Midia? Midia { get; set; }
         public string? Artista { get; set; }
         public int? Duracao { get; set; }
     }

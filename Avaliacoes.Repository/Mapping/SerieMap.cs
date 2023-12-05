@@ -4,20 +4,20 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Avaliacoes.Repository.Mapping
 {
-    public class SeriesMap : IEntityTypeConfiguration<Series>
+    public class SerieMap : IEntityTypeConfiguration<Serie>
     {
-        public void Configure(EntityTypeBuilder<Series> builder)
+        public void Configure(EntityTypeBuilder<Serie> builder)
         {
-            builder.ToTable("Series");
+            builder.ToTable("Serie");
 
             builder.HasKey(prop => prop.Id);
-
-            builder.HasKey(prop => prop.Midia);
 
             builder.Property(prop => prop.Diretor)
                 .HasColumnType("varchar(127)");
 
             builder.Property(prop => prop.QntEps);
+
+            builder.HasOne(prop => prop.Midia);
         }
     }
 }

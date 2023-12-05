@@ -4,20 +4,20 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Avaliacoes.Repository.Mapping
 {
-    public class FilmesMap : IEntityTypeConfiguration<Filmes>
+    public class FilmeMap : IEntityTypeConfiguration<Filme>
     {
-        public void Configure(EntityTypeBuilder<Filmes> builder)
+        public void Configure(EntityTypeBuilder<Filme> builder)
         {
-            builder.ToTable("Filmes");
+            builder.ToTable("Filme");
 
             builder.HasKey(prop => prop.Id);
-
-            builder.HasKey(prop => prop.Midia);
 
             builder.Property(prop => prop.Diretor)
                 .HasColumnType("varchar(100)");
 
             builder.Property(prop => prop.Duracao);
+
+            builder.HasOne(prop => prop.Midia);
         }
     }
 }

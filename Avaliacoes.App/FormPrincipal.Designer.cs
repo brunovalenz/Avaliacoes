@@ -284,7 +284,6 @@
             Name = "FormPrincipal";
             Text = "Sistema de Avaliações";
             FormClosing += FormPrincipal_FormClosing;
-            Load += FormPrincipal_Load;
             tabControl.ResumeLayout(false);
             tabAvaliacoes.ResumeLayout(false);
             tabNewAva.ResumeLayout(false);

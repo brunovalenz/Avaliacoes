@@ -3,9 +3,9 @@ using Avaliacoes.Domain.Entities;
 
 namespace Avaliacoes.Service.Validators
 {
-    public class FilmesValidator : AbstractValidator<Filmes>
+    public class FilmeValidator : AbstractValidator<Filme>
     {
-        public FilmesValidator()
+        public FilmeValidator()
         {
             RuleFor(c => c.Diretor)
                 .NotEmpty().WithMessage("Por favor informe o diretor.")

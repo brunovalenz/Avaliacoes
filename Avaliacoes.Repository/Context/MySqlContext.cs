@@ -13,23 +13,24 @@ namespace Avaliacoes.Repository.Context
             ChangeTracker.LazyLoadingEnabled = false;
         }
 
-        public DbSet<Midias>? Midias { get; set; }
-        public DbSet<Filmes>? Filmes { get; set; }
-        public DbSet<Musicas>? Musicas { get; set; }
-        public DbSet<Livros>? Livros { get; set; }
-        public DbSet<Series>? Series { get; set; }
+        public DbSet<Midia>? Midia { get; set; }
+        public DbSet<Filme>? Filme { get; set; }
+        public DbSet<Musica>? Musica { get; set; }
+        public DbSet<Livro>? Livro { get; set; }
+        public DbSet<Serie>? Serie { get; set; }
         public DbSet<Avaliacao>? Avaliacao { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Midias>(new MidiasMap().Configure);
-            modelBuilder.Entity<Filmes>(new FilmesMap().Configure);
-            modelBuilder.Entity<Musicas>(new MusicasMap().Configure);
-            modelBuilder.Entity<Livros>(new LivrosMap().Configure);
-            modelBuilder.Entity<Series>(new SeriesMap().Configure);
+            modelBuilder.Entity<Midia>(new MidiaMap().Configure);
+            modelBuilder.Entity<Filme>(new FilmeMap().Configure);
+            modelBuilder.Entity<Musica>(new MusicaMap().Configure);
+            modelBuilder.Entity<Livro>(new LivroMap().Configure);
+            modelBuilder.Entity<Serie>(new SerieMap().Configure);
             modelBuilder.Entity<Avaliacao>(new AvaliacaoMap().Configure);
+
         }
     }
 }

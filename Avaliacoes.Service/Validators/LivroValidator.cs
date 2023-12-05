@@ -3,9 +3,9 @@ using Avaliacoes.Domain.Entities;
 
 namespace Avaliacoes.Service.Validators
 {
-    public class LivrosValidator : AbstractValidator<Livros>
+    public class LivroValidator : AbstractValidator<Livro>
     {
-        public LivrosValidator()
+        public LivroValidator()
         {
             RuleFor(c => c.Autor)
                 .NotEmpty().WithMessage("Por favor informe o autor.")

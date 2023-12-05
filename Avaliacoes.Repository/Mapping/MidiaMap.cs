@@ -4,24 +4,24 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Avaliacoes.Repository.Mapping
 {
-    public class MidiasMap : IEntityTypeConfiguration<Midias>
+    public class MidiaMap : IEntityTypeConfiguration<Midia>
     {
-        public void Configure(EntityTypeBuilder<Midias> builder)
+        public void Configure(EntityTypeBuilder<Midia> builder)
         {
-            builder.ToTable("Midias");
+            builder.ToTable("Midia");
 
             builder.HasKey(prop => prop.Id);
 
             builder.Property(prop => prop.Titulo)
-                .IsRequired()
-                .HasColumnType("varchar(255)");
+                .HasColumnType("varchar(200)");
 
             builder.Property(prop => prop.AnoLancamento);
 
-            builder.Property(prop => prop.Descricao);
+            builder.Property(prop => prop.Descricao)
+                .HasColumnType("text");
 
             builder.Property(prop => prop.Classificacao)
-                .HasColumnType("varchar(15)");
+                .HasColumnType("varchar(20)");
         }
     }
 }

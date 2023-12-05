@@ -12,13 +12,16 @@ namespace Avaliacoes.Repository.Mapping
 
             builder.HasKey(prop => prop.Id);
 
-            builder.HasKey(prop => prop.Midia);
+            builder.Property(prop => prop.Nota);
 
-            builder.HasKey(prop => prop.Nota);
+            builder.Property(prop => prop.Avaliacao2)
+                .HasColumnType("text");
 
-            builder.Property(prop => prop.Avaliacao2);
+            builder.Property(prop => prop.DataAvaliacao)
+                .HasDefaultValue(DateTime.Now);
 
-            builder.Property(prop => prop.DataAvaliacao);
+            builder.HasOne(prop => prop.Midia);
+
         }
     }
 }

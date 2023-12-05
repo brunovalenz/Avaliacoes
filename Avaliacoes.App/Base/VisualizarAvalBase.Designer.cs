@@ -40,9 +40,9 @@ partial class VisualizarAvalBase
         txtDescricao = new ReaLTaiizor.Controls.MaterialRichTextBox();
         txtClassificacao = new ReaLTaiizor.Controls.MaterialLabel();
         lClassification = new ReaLTaiizor.Controls.MaterialLabel();
-        txtDataLanca = new ReaLTaiizor.Controls.MaterialLabel();
+        txtAnoLanca = new ReaLTaiizor.Controls.MaterialLabel();
         lMedia = new ReaLTaiizor.Controls.MaterialLabel();
-        lReleaseDate = new ReaLTaiizor.Controls.MaterialLabel();
+        lReleaseYear = new ReaLTaiizor.Controls.MaterialLabel();
         txtAvaliacao = new ReaLTaiizor.Controls.MaterialRichTextBox();
         panel1.SuspendLayout();
         SuspendLayout();
@@ -61,9 +61,9 @@ partial class VisualizarAvalBase
         panel1.Controls.Add(txtDescricao);
         panel1.Controls.Add(txtClassificacao);
         panel1.Controls.Add(lClassification);
-        panel1.Controls.Add(txtDataLanca);
+        panel1.Controls.Add(txtAnoLanca);
         panel1.Controls.Add(lMedia);
-        panel1.Controls.Add(lReleaseDate);
+        panel1.Controls.Add(lReleaseYear);
         panel1.Dock = DockStyle.Right;
         panel1.Location = new Point(568, 64);
         panel1.Name = "panel1";
@@ -185,12 +185,12 @@ partial class VisualizarAvalBase
         lDateAval.Depth = 0;
         lDateAval.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
         lDateAval.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-        lDateAval.Location = new Point(33, 581);
+        lDateAval.Location = new Point(38, 590);
         lDateAval.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
         lDateAval.Name = "lDateAval";
-        lDateAval.Size = new Size(217, 29);
+        lDateAval.Size = new Size(196, 29);
         lDateAval.TabIndex = 9;
-        lDateAval.Text = "Data de lançamento";
+        lDateAval.Text = "Data da Avaliação";
         // 
         // txtDescricao
         // 
@@ -236,18 +236,18 @@ partial class VisualizarAvalBase
         lClassification.TabIndex = 6;
         lClassification.Text = "Classificação: ";
         // 
-        // txtDataLanca
+        // txtAnoLanca
         // 
-        txtDataLanca.AutoSize = true;
-        txtDataLanca.Depth = 0;
-        txtDataLanca.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-        txtDataLanca.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-        txtDataLanca.Location = new Point(80, 98);
-        txtDataLanca.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-        txtDataLanca.Name = "txtDataLanca";
-        txtDataLanca.Size = new Size(125, 29);
-        txtDataLanca.TabIndex = 5;
-        txtDataLanca.Text = "00/00/0000";
+        txtAnoLanca.AutoSize = true;
+        txtAnoLanca.Depth = 0;
+        txtAnoLanca.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+        txtAnoLanca.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+        txtAnoLanca.Location = new Point(110, 100);
+        txtAnoLanca.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+        txtAnoLanca.Name = "txtAnoLanca";
+        txtAnoLanca.Size = new Size(53, 29);
+        txtAnoLanca.TabIndex = 5;
+        txtAnoLanca.Text = "0000";
         // 
         // lMedia
         // 
@@ -262,18 +262,18 @@ partial class VisualizarAvalBase
         lMedia.TabIndex = 4;
         lMedia.Text = "Dados da mídia";
         // 
-        // lReleaseDate
+        // lReleaseYear
         // 
-        lReleaseDate.AutoSize = true;
-        lReleaseDate.Depth = 0;
-        lReleaseDate.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-        lReleaseDate.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-        lReleaseDate.Location = new Point(33, 60);
-        lReleaseDate.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-        lReleaseDate.Name = "lReleaseDate";
-        lReleaseDate.Size = new Size(217, 29);
-        lReleaseDate.TabIndex = 3;
-        lReleaseDate.Text = "Data de lançamento";
+        lReleaseYear.AutoSize = true;
+        lReleaseYear.Depth = 0;
+        lReleaseYear.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+        lReleaseYear.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+        lReleaseYear.Location = new Point(33, 60);
+        lReleaseYear.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+        lReleaseYear.Name = "lReleaseYear";
+        lReleaseYear.Size = new Size(210, 29);
+        lReleaseYear.TabIndex = 3;
+        lReleaseYear.Text = "Ano de lançamento";
         // 
         // txtAvaliacao
         // 
@@ -311,9 +311,9 @@ partial class VisualizarAvalBase
 
     private Panel panel1;
     private ReaLTaiizor.Controls.MaterialRichTextBox txtAvaliacao;
-    private ReaLTaiizor.Controls.MaterialLabel txtDataLanca;
+    private ReaLTaiizor.Controls.MaterialLabel txtAnoLanca;
     private ReaLTaiizor.Controls.MaterialLabel lMedia;
-    private ReaLTaiizor.Controls.MaterialLabel lReleaseDate;
+    private ReaLTaiizor.Controls.MaterialLabel lReleaseYear;
     private ReaLTaiizor.Controls.MaterialLabel txtClassificacao;
     private ReaLTaiizor.Controls.MaterialLabel lClassification;
     private ReaLTaiizor.Controls.MaterialRichTextBox txtDescricao;

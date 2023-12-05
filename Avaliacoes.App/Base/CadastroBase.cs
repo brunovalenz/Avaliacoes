@@ -1,4 +1,5 @@
-﻿using ReaLTaiizor.Controls;
+﻿using Microsoft.EntityFrameworkCore;
+using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
 
 namespace Avaliacoes.App.Base
@@ -6,7 +7,7 @@ namespace Avaliacoes.App.Base
     public partial class CadastroBase : MaterialForm
     {
         #region Declarações
-        protected bool IsAlteracao = false;
+
         #endregion
 
         #region Construtor
@@ -25,15 +26,30 @@ namespace Avaliacoes.App.Base
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Salvar();
+            try
+            {
+                Salvar();
+            }
+            catch (DbUpdateException ex)
+            {
+                // Inspect the inner exception
+                Exception innerException = ex.InnerException;
+
+                while (innerException != null)
+                {
+                    Console.WriteLine(innerException.Message);
+                    innerException = innerException.InnerException;
+                }
+            }
+
         }
 
         #endregion
 
         #region CRUD Methods
+        /*
         protected void LimpaCampos()
         {
-            IsAlteracao = false;
             foreach (var control in Controls)
             {
                 if (control is MaterialTextBoxEdit)
@@ -47,6 +63,8 @@ namespace Avaliacoes.App.Base
                 }
             }
         }
+        */
+
         protected virtual void Salvar()
         {
 

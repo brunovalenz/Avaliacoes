@@ -1,6 +1,6 @@
 ﻿namespace Avaliacoes.App.Cadastros
 {
-    partial class CadastroSeries
+    partial class CadastroFilme
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             txtDiretor = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtQntEps = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
+            txtDuracao = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             SuspendLayout();
+            // 
+            // txtAnoLanca
+            // 
+            txtAnoLanca.TabIndex = 1;
             // 
             // txtDiretor
             // 
@@ -44,7 +48,7 @@
             txtDiretor.HideSelection = true;
             txtDiretor.Hint = "Diretor";
             txtDiretor.LeadingIcon = null;
-            txtDiretor.Location = new Point(24, 225);
+            txtDiretor.Location = new Point(24, 220);
             txtDiretor.MaxLength = 32767;
             txtDiretor.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtDiretor.Name = "txtDiretor";
@@ -63,61 +67,55 @@
             txtDiretor.TrailingIcon = null;
             txtDiretor.UseSystemPasswordChar = false;
             // 
-            // txtQntEps
+            // txtDuracao
             // 
-            txtQntEps.AllowPromptAsInput = true;
-            txtQntEps.AnimateReadOnly = false;
-            txtQntEps.AsciiOnly = false;
-            txtQntEps.BackgroundImageLayout = ImageLayout.None;
-            txtQntEps.BeepOnError = false;
-            txtQntEps.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
-            txtQntEps.Depth = 0;
-            txtQntEps.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtQntEps.HidePromptOnLeave = false;
-            txtQntEps.HideSelection = true;
-            txtQntEps.Hint = "Quantidade de Episódios";
-            txtQntEps.InsertKeyMode = InsertKeyMode.Default;
-            txtQntEps.LeadingIcon = null;
-            txtQntEps.Location = new Point(453, 225);
-            txtQntEps.Mask = "999/";
-            txtQntEps.MaxLength = 32767;
-            txtQntEps.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtQntEps.Name = "txtQntEps";
-            txtQntEps.PasswordChar = '\0';
-            txtQntEps.PrefixSuffixText = null;
-            txtQntEps.PromptChar = '_';
-            txtQntEps.ReadOnly = false;
-            txtQntEps.RejectInputOnFirstFailure = false;
-            txtQntEps.ResetOnPrompt = true;
-            txtQntEps.ResetOnSpace = true;
-            txtQntEps.RightToLeft = RightToLeft.No;
-            txtQntEps.SelectedText = "";
-            txtQntEps.SelectionLength = 0;
-            txtQntEps.SelectionStart = 0;
-            txtQntEps.ShortcutsEnabled = true;
-            txtQntEps.Size = new Size(173, 48);
-            txtQntEps.SkipLiterals = true;
-            txtQntEps.TabIndex = 5;
-            txtQntEps.TabStop = false;
-            txtQntEps.Text = "   /";
-            txtQntEps.TextAlign = HorizontalAlignment.Left;
-            txtQntEps.TextMaskFormat = MaskFormat.IncludeLiterals;
-            txtQntEps.TrailingIcon = null;
-            txtQntEps.UseSystemPasswordChar = false;
-            txtQntEps.ValidatingType = null;
+            txtDuracao.AnimateReadOnly = false;
+            txtDuracao.AutoCompleteMode = AutoCompleteMode.None;
+            txtDuracao.AutoCompleteSource = AutoCompleteSource.None;
+            txtDuracao.BackgroundImageLayout = ImageLayout.None;
+            txtDuracao.CharacterCasing = CharacterCasing.Normal;
+            txtDuracao.Depth = 0;
+            txtDuracao.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtDuracao.HideSelection = true;
+            txtDuracao.Hint = "Duração (min)";
+            txtDuracao.LeadingIcon = null;
+            txtDuracao.Location = new Point(453, 220);
+            txtDuracao.MaxLength = 32767;
+            txtDuracao.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtDuracao.Name = "txtDuracao";
+            txtDuracao.PasswordChar = '\0';
+            txtDuracao.PrefixSuffixText = null;
+            txtDuracao.ReadOnly = false;
+            txtDuracao.RightToLeft = RightToLeft.No;
+            txtDuracao.SelectedText = "";
+            txtDuracao.SelectionLength = 0;
+            txtDuracao.SelectionStart = 0;
+            txtDuracao.ShortcutsEnabled = true;
+            txtDuracao.Size = new Size(174, 48);
+            txtDuracao.TabIndex = 5;
+            txtDuracao.TabStop = false;
+            txtDuracao.TextAlign = HorizontalAlignment.Left;
+            txtDuracao.TrailingIcon = null;
+            txtDuracao.UseSystemPasswordChar = false;
             // 
-            // CadastroSeries
+            // CadastroFilmes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(633, 358);
-            Controls.Add(txtQntEps);
+            Controls.Add(txtDuracao);
             Controls.Add(txtDiretor);
             Location = new Point(0, 0);
-            Name = "CadastroSeries";
-            Text = "Cadastro Série";
+            Name = "CadastroFilmes";
+            Text = "Cadastro Filme";
             Controls.SetChildIndex(txtDiretor, 0);
-            Controls.SetChildIndex(txtQntEps, 0);
+            Controls.SetChildIndex(btnAdd, 0);
+            Controls.SetChildIndex(btnCancel, 0);
+            Controls.SetChildIndex(txtTitulo, 0);
+            Controls.SetChildIndex(txtDescricao, 0);
+            Controls.SetChildIndex(cboClassificacao, 0);
+            Controls.SetChildIndex(txtAnoLanca, 0);
+            Controls.SetChildIndex(txtDuracao, 0);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -125,6 +123,6 @@
         #endregion
 
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDiretor;
-        private ReaLTaiizor.Controls.MaterialMaskedTextBox txtQntEps;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDuracao;
     }
 }

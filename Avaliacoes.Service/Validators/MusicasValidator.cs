@@ -3,9 +3,9 @@ using Avaliacoes.Domain.Entities;
 
 namespace Avaliacoes.Service.Validators
 {
-    public class MusicasValidator : AbstractValidator<Musicas>
+    public class MusicaValidator : AbstractValidator<Musica>
     {
-        public MusicasValidator()
+        public MusicaValidator()
         {
             RuleFor(c => c.Artista)
                 .NotEmpty().WithMessage("Por favor informe o artista.")

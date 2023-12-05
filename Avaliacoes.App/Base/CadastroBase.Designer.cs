@@ -36,9 +36,9 @@ namespace Avaliacoes.App.Base
             btnAdd = new ReaLTaiizor.Controls.MaterialButton();
             btnCancel = new ReaLTaiizor.Controls.MaterialButton();
             txtTitulo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtData = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
             txtDescricao = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cboClassificacao = new ReaLTaiizor.Controls.MaterialComboBox();
+            txtAnoLanca = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             SuspendLayout();
             // 
             // imageList
@@ -123,49 +123,6 @@ namespace Avaliacoes.App.Base
             txtTitulo.TrailingIcon = null;
             txtTitulo.UseSystemPasswordChar = false;
             // 
-            // txtData
-            // 
-            txtData.AllowPromptAsInput = true;
-            txtData.AnimateReadOnly = false;
-            txtData.AsciiOnly = false;
-            txtData.BackgroundImageLayout = ImageLayout.None;
-            txtData.BeepOnError = false;
-            txtData.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
-            txtData.Depth = 0;
-            txtData.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtData.HidePromptOnLeave = false;
-            txtData.HideSelection = true;
-            txtData.Hint = "Data de lançamento";
-            txtData.InsertKeyMode = InsertKeyMode.Default;
-            txtData.LeadingIcon = null;
-            txtData.Location = new Point(453, 88);
-            txtData.Mask = "99/99/9999";
-            txtData.MaxLength = 32767;
-            txtData.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtData.Name = "txtData";
-            txtData.PasswordChar = '\0';
-            txtData.PrefixSuffixText = null;
-            txtData.PromptChar = '_';
-            txtData.ReadOnly = false;
-            txtData.RejectInputOnFirstFailure = false;
-            txtData.ResetOnPrompt = true;
-            txtData.ResetOnSpace = true;
-            txtData.RightToLeft = RightToLeft.No;
-            txtData.SelectedText = "";
-            txtData.SelectionLength = 0;
-            txtData.SelectionStart = 0;
-            txtData.ShortcutsEnabled = true;
-            txtData.Size = new Size(173, 48);
-            txtData.SkipLiterals = true;
-            txtData.TabIndex = 1;
-            txtData.TabStop = false;
-            txtData.Text = "  /  /";
-            txtData.TextAlign = HorizontalAlignment.Left;
-            txtData.TextMaskFormat = MaskFormat.IncludeLiterals;
-            txtData.TrailingIcon = null;
-            txtData.UseSystemPasswordChar = false;
-            txtData.ValidatingType = null;
-            // 
             // txtDescricao
             // 
             txtDescricao.AnimateReadOnly = false;
@@ -221,14 +178,45 @@ namespace Avaliacoes.App.Base
             cboClassificacao.StartIndex = 0;
             cboClassificacao.TabIndex = 3;
             // 
+            // txtAnoLanca
+            // 
+            txtAnoLanca.AnimateReadOnly = false;
+            txtAnoLanca.AutoCompleteMode = AutoCompleteMode.None;
+            txtAnoLanca.AutoCompleteSource = AutoCompleteSource.None;
+            txtAnoLanca.BackgroundImageLayout = ImageLayout.None;
+            txtAnoLanca.CharacterCasing = CharacterCasing.Normal;
+            txtAnoLanca.Depth = 0;
+            txtAnoLanca.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtAnoLanca.HideSelection = true;
+            txtAnoLanca.Hint = "Ano Lançamento";
+            txtAnoLanca.LeadingIcon = null;
+            txtAnoLanca.Location = new Point(453, 88);
+            txtAnoLanca.MaxLength = 32767;
+            txtAnoLanca.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtAnoLanca.Name = "txtAnoLanca";
+            txtAnoLanca.PasswordChar = '\0';
+            txtAnoLanca.PrefixSuffixText = null;
+            txtAnoLanca.ReadOnly = false;
+            txtAnoLanca.RightToLeft = RightToLeft.No;
+            txtAnoLanca.SelectedText = "";
+            txtAnoLanca.SelectionLength = 0;
+            txtAnoLanca.SelectionStart = 0;
+            txtAnoLanca.ShortcutsEnabled = true;
+            txtAnoLanca.Size = new Size(173, 48);
+            txtAnoLanca.TabIndex = 8;
+            txtAnoLanca.TabStop = false;
+            txtAnoLanca.TextAlign = HorizontalAlignment.Left;
+            txtAnoLanca.TrailingIcon = null;
+            txtAnoLanca.UseSystemPasswordChar = false;
+            // 
             // CadastroBase
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(633, 358);
+            Controls.Add(txtAnoLanca);
             Controls.Add(cboClassificacao);
             Controls.Add(txtDescricao);
-            Controls.Add(txtData);
             Controls.Add(txtTitulo);
             Controls.Add(btnCancel);
             Controls.Add(btnAdd);
@@ -243,11 +231,11 @@ namespace Avaliacoes.App.Base
 
         #endregion
         private ImageList imageList;
-        private ReaLTaiizor.Controls.MaterialButton btnAdd;
-        private ReaLTaiizor.Controls.MaterialButton btnCancel;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTitulo;
-        private ReaLTaiizor.Controls.MaterialMaskedTextBox txtData;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDescricao;
-        private ReaLTaiizor.Controls.MaterialComboBox cboClassificacao;
+        protected ReaLTaiizor.Controls.MaterialButton btnAdd;
+        protected ReaLTaiizor.Controls.MaterialButton btnCancel;
+        protected ReaLTaiizor.Controls.MaterialTextBoxEdit txtTitulo;
+        protected ReaLTaiizor.Controls.MaterialTextBoxEdit txtDescricao;
+        protected ReaLTaiizor.Controls.MaterialComboBox cboClassificacao;
+        protected ReaLTaiizor.Controls.MaterialTextBoxEdit txtAnoLanca;
     }
 }

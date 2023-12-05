@@ -1,6 +1,6 @@
 ﻿namespace Avaliacoes.App.Cadastros
 {
-    partial class CadastroLivros
+    partial class CadastroLivro
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             txtAutor = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtTotalPag = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
+            txtTotalPag = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             SuspendLayout();
+            // 
+            // txtAnoLanca
+            // 
+            txtAnoLanca.TabIndex = 1;
             // 
             // txtAutor
             // 
@@ -65,48 +69,36 @@
             // 
             // txtTotalPag
             // 
-            txtTotalPag.AllowPromptAsInput = true;
             txtTotalPag.AnimateReadOnly = false;
-            txtTotalPag.AsciiOnly = false;
+            txtTotalPag.AutoCompleteMode = AutoCompleteMode.None;
+            txtTotalPag.AutoCompleteSource = AutoCompleteSource.None;
             txtTotalPag.BackgroundImageLayout = ImageLayout.None;
-            txtTotalPag.BeepOnError = false;
-            txtTotalPag.CutCopyMaskFormat = MaskFormat.IncludeLiterals;
+            txtTotalPag.CharacterCasing = CharacterCasing.Normal;
             txtTotalPag.Depth = 0;
             txtTotalPag.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtTotalPag.HidePromptOnLeave = false;
             txtTotalPag.HideSelection = true;
             txtTotalPag.Hint = "Total de Páginas";
-            txtTotalPag.InsertKeyMode = InsertKeyMode.Default;
             txtTotalPag.LeadingIcon = null;
             txtTotalPag.Location = new Point(453, 221);
-            txtTotalPag.Mask = "99999/";
             txtTotalPag.MaxLength = 32767;
             txtTotalPag.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtTotalPag.Name = "txtTotalPag";
             txtTotalPag.PasswordChar = '\0';
             txtTotalPag.PrefixSuffixText = null;
-            txtTotalPag.PromptChar = '_';
             txtTotalPag.ReadOnly = false;
-            txtTotalPag.RejectInputOnFirstFailure = false;
-            txtTotalPag.ResetOnPrompt = true;
-            txtTotalPag.ResetOnSpace = true;
             txtTotalPag.RightToLeft = RightToLeft.No;
             txtTotalPag.SelectedText = "";
             txtTotalPag.SelectionLength = 0;
             txtTotalPag.SelectionStart = 0;
             txtTotalPag.ShortcutsEnabled = true;
-            txtTotalPag.Size = new Size(173, 48);
-            txtTotalPag.SkipLiterals = true;
+            txtTotalPag.Size = new Size(174, 48);
             txtTotalPag.TabIndex = 5;
             txtTotalPag.TabStop = false;
-            txtTotalPag.Text = "     /";
             txtTotalPag.TextAlign = HorizontalAlignment.Left;
-            txtTotalPag.TextMaskFormat = MaskFormat.IncludeLiterals;
             txtTotalPag.TrailingIcon = null;
             txtTotalPag.UseSystemPasswordChar = false;
-            txtTotalPag.ValidatingType = null;
             // 
-            // CadastroLivros
+            // CadastroLivro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -114,8 +106,14 @@
             Controls.Add(txtTotalPag);
             Controls.Add(txtAutor);
             Location = new Point(0, 0);
-            Name = "CadastroLivros";
+            Name = "CadastroLivro";
             Text = "Cadastro Livro";
+            Controls.SetChildIndex(btnAdd, 0);
+            Controls.SetChildIndex(btnCancel, 0);
+            Controls.SetChildIndex(txtTitulo, 0);
+            Controls.SetChildIndex(txtDescricao, 0);
+            Controls.SetChildIndex(cboClassificacao, 0);
+            Controls.SetChildIndex(txtAnoLanca, 0);
             Controls.SetChildIndex(txtAutor, 0);
             Controls.SetChildIndex(txtTotalPag, 0);
             ResumeLayout(false);
@@ -125,6 +123,6 @@
         #endregion
 
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtAutor;
-        private ReaLTaiizor.Controls.MaterialMaskedTextBox txtTotalPag;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTotalPag;
     }
 }

@@ -24,7 +24,7 @@ namespace Avaliacoes.App.Infra
             Services = new ServiceCollection();
             Services.AddDbContext<MySqlContext>(options =>
             {
-                var strCon = File.ReadAllText("Config/DatabaseSettings.txt");
+                var strCon = File.ReadAllText("../../../Config/DatabaseSettings.txt");
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
                 options.EnableSensitiveDataLogging();
 
@@ -37,47 +37,51 @@ namespace Avaliacoes.App.Infra
             });
 
             // Repositories
-            Services.AddScoped<IBaseRepository<Midias>, BaseRepository<Midias>>();
-            Services.AddScoped<IBaseRepository<Filmes>, BaseRepository<Filmes>>();
-            Services.AddScoped<IBaseRepository<Musicas>, BaseRepository<Musicas>>();
-            Services.AddScoped<IBaseRepository<Livros>, BaseRepository<Livros>>();
-            Services.AddScoped<IBaseRepository<Series>, BaseRepository<Series>>();
+            Services.AddScoped<IBaseRepository<Midia>, BaseRepository<Midia>>();
+            Services.AddScoped<IBaseRepository<Filme>, BaseRepository<Filme>>();
+            Services.AddScoped<IBaseRepository<Musica>, BaseRepository<Musica>>();
+            Services.AddScoped<IBaseRepository<Livro>, BaseRepository<Livro>>();
+            Services.AddScoped<IBaseRepository<Serie>, BaseRepository<Serie>>();
             Services.AddScoped<IBaseRepository<Avaliacao>, BaseRepository<Avaliacao>>();
 
             // Services
-            Services.AddScoped<IBaseService<Midias>, BaseService<Midias>>();
-            Services.AddScoped<IBaseService<Filmes>, BaseService<Filmes>>();
-            Services.AddScoped<IBaseService<Musicas>, BaseService<Musicas>>();
-            Services.AddScoped<IBaseService<Livros>, BaseService<Livros>>();
-            Services.AddScoped<IBaseService<Series>, BaseService<Series>>();
+            Services.AddScoped<IBaseService<Midia>, BaseService<Midia>>();
+            Services.AddScoped<IBaseService<Filme>, BaseService<Filme>>();
+            Services.AddScoped<IBaseService<Musica>, BaseService<Musica>>();
+            Services.AddScoped<IBaseService<Livro>, BaseService<Livro>>();
+            Services.AddScoped<IBaseService<Serie>, BaseService<Serie>>();
             Services.AddScoped<IBaseService<Avaliacao>, BaseService<Avaliacao>>();
 
             // Formulários
-            Services.AddTransient<CadastroFilmes, CadastroFilmes>();
-            Services.AddTransient<CadastroMusicas, CadastroMusicas>();
-            Services.AddTransient<CadastroLivros, CadastroLivros>();
-            Services.AddTransient<CadastroSeries, CadastroSeries>();
+            Services.AddTransient<CadastroFilme, CadastroFilme>();
+            Services.AddTransient<CadastroMusica, CadastroMusica>();
+            Services.AddTransient<CadastroLivro, CadastroLivro>();
+            Services.AddTransient<CadastroSerie, CadastroSerie>();
 
             // Mapping
             Services.AddSingleton(new MapperConfiguration(config =>
             {
-                config.CreateMap<Midias, MidiasModel>();
-                config.CreateMap<Filmes, FilmesModel>()
+                config.CreateMap<Midia, MidiaModel>();
+
+                config.CreateMap<Filme, FilmeModel>()
                     .ForMember(d => d.Midia, d => d.MapFrom(x => $"{x.Midia!.Titulo}/{x.Midia!.AnoLancamento}/{x.Midia!.Descricao}/{x.Midia!.Classificacao}"))
-                    .ForMember(d => d.Midias, d => d.MapFrom(x => x.Midia!.Id));
-                config.CreateMap<Musicas, MusicasModel>()
+                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id));
+
+                config.CreateMap<Musica, MusicaModel>()
                     .ForMember(d => d.Midia, d => d.MapFrom(x => $"{x.Midia!.Titulo}/{x.Midia!.AnoLancamento}/{x.Midia!.Descricao}/{x.Midia!.Classificacao}"))
-                    .ForMember(d => d.Midias, d => d.MapFrom(x => x.Midia!.Id));
-                config.CreateMap<Livros, LivrosModel>()
+                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id));
+
+                config.CreateMap<Livro, LivroModel>()
                     .ForMember(d => d.Midia, d => d.MapFrom(x => $"{x.Midia!.Titulo}/{x.Midia!.AnoLancamento}/{x.Midia!.Descricao}/{x.Midia!.Classificacao}"))
-                    .ForMember(d => d.Midias, d => d.MapFrom(x => x.Midia!.Id));
-                config.CreateMap<Series, SeriesModel>()
+                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id));
+
+                config.CreateMap<Serie, SerieModel>()
                     .ForMember(d => d.Midia, d => d.MapFrom(x => $"{x.Midia!.Titulo}/{x.Midia!.AnoLancamento}/{x.Midia!.Descricao}/{x.Midia!.Classificacao}"))
-                    .ForMember(d => d.Midias, d => d.MapFrom(x => x.Midia!.Id));
+                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id));
 
                 config.CreateMap<Avaliacao, AvaliacaoModel>()
                     .ForMember(d => d.Midia, d => d.MapFrom(x => $"{x.Midia!.Titulo}/{x.Midia!.AnoLancamento}/{x.Midia!.Descricao}/{x.Midia!.Classificacao}"))
-                    .ForMember(d => d.Midias, d => d.MapFrom(x => x.Midia!.Id));
+                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id));
 
             }).CreateMapper());
 
