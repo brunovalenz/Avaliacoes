@@ -68,8 +68,9 @@ namespace Avaliacoes.App.Cadastros
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, @"Avaliações", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, @"Avaliações", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            if (FormPrincipal.instance != null) FormPrincipal.instance.CarregarMidias();
         }
 
 

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Avaliacoes.App.Cadastros;
 using Avaliacoes.App.Models;
-//using Avaliacoes.App.Outros;
 using Avaliacoes.Domain.Base;
 using Avaliacoes.Domain.Entities;
 using Avaliacoes.Repository.Context;
@@ -53,6 +52,8 @@ namespace Avaliacoes.App.Infra
             Services.AddScoped<IBaseService<Avaliacao>, BaseService<Avaliacao>>();
 
             // Formulários
+            Services.AddTransient<FormPrincipal, FormPrincipal>();
+
             Services.AddTransient<CadastroFilme, CadastroFilme>();
             Services.AddTransient<CadastroMusica, CadastroMusica>();
             Services.AddTransient<CadastroLivro, CadastroLivro>();
@@ -64,23 +65,35 @@ namespace Avaliacoes.App.Infra
                 config.CreateMap<Midia, MidiaModel>();
 
                 config.CreateMap<Filme, FilmeModel>()
-                    .ForMember(d => d.Midia, d => d.MapFrom(x => $"{x.Midia!.Titulo}/{x.Midia!.AnoLancamento}/{x.Midia!.Descricao}/{x.Midia!.Classificacao}"))
-                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id));
+                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id))
+                    .ForMember(d => d.Titulo, d => d.MapFrom(x => x.Midia!.Titulo))
+                    .ForMember(d => d.AnoLancamento, d => d.MapFrom(x => x.Midia!.AnoLancamento))
+                    .ForMember(d => d.Descricao, d => d.MapFrom(x => x.Midia!.Descricao))
+                    .ForMember(d => d.Classificacao, d => d.MapFrom(x => x.Midia!.Classificacao));
 
                 config.CreateMap<Musica, MusicaModel>()
-                    .ForMember(d => d.Midia, d => d.MapFrom(x => $"{x.Midia!.Titulo}/{x.Midia!.AnoLancamento}/{x.Midia!.Descricao}/{x.Midia!.Classificacao}"))
-                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id));
+                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id))
+                    .ForMember(d => d.Titulo, d => d.MapFrom(x => x.Midia!.Titulo))
+                    .ForMember(d => d.AnoLancamento, d => d.MapFrom(x => x.Midia!.AnoLancamento))
+                    .ForMember(d => d.Descricao, d => d.MapFrom(x => x.Midia!.Descricao))
+                    .ForMember(d => d.Classificacao, d => d.MapFrom(x => x.Midia!.Classificacao));
 
                 config.CreateMap<Livro, LivroModel>()
-                    .ForMember(d => d.Midia, d => d.MapFrom(x => $"{x.Midia!.Titulo}/{x.Midia!.AnoLancamento}/{x.Midia!.Descricao}/{x.Midia!.Classificacao}"))
-                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id));
+                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id))
+                    .ForMember(d => d.Titulo, d => d.MapFrom(x => x.Midia!.Titulo))
+                    .ForMember(d => d.AnoLancamento, d => d.MapFrom(x => x.Midia!.AnoLancamento))
+                    .ForMember(d => d.Descricao, d => d.MapFrom(x => x.Midia!.Descricao))
+                    .ForMember(d => d.Classificacao, d => d.MapFrom(x => x.Midia!.Classificacao));
 
                 config.CreateMap<Serie, SerieModel>()
-                    .ForMember(d => d.Midia, d => d.MapFrom(x => $"{x.Midia!.Titulo}/{x.Midia!.AnoLancamento}/{x.Midia!.Descricao}/{x.Midia!.Classificacao}"))
-                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id));
+                    .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id))
+                    .ForMember(d => d.Titulo, d => d.MapFrom(x => x.Midia!.Titulo))
+                    .ForMember(d => d.AnoLancamento, d => d.MapFrom(x => x.Midia!.AnoLancamento))
+                    .ForMember(d => d.Descricao, d => d.MapFrom(x => x.Midia!.Descricao))
+                    .ForMember(d => d.Classificacao, d => d.MapFrom(x => x.Midia!.Classificacao));
 
                 config.CreateMap<Avaliacao, AvaliacaoModel>()
-                    .ForMember(d => d.Midia, d => d.MapFrom(x => $"{x.Midia!.Titulo}/{x.Midia!.AnoLancamento}/{x.Midia!.Descricao}/{x.Midia!.Classificacao}"))
+                    .ForMember(d => d.Titulo, d => d.MapFrom(x => x.Midia!.Titulo))
                     .ForMember(d => d.IdMidia, d => d.MapFrom(x => x.Midia!.Id));
 
             }).CreateMapper());

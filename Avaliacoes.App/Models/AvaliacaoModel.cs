@@ -7,7 +7,7 @@
         public string? Avaliacao2 { get; set; }
         public DateTime? DataAvaliacao { get; set; }
         public int IdMidia { get; set; }
-        public string? Midia { get; set; }
+        public string? Titulo { get; set; }
 
     }
 }

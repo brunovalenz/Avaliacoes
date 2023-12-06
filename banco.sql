@@ -1,48 +1,48 @@
 CREATE TABLE Midias (
-    ID NUMBER PRIMARY KEY,
-    Titulo VARCHAR2(255) NOT NULL,
-    AnoLancamento NUMBER(4),
-    Descricao CLOB,
-    Classificacao VARCHAR2(15)
+    Id INT PRIMARY KEY,
+    Titulo VARCHAR(255) NOT NULL,
+    AnoLancamento INT,
+    Descricao TEXT,
+    Classificacao VARCHAR(15)
 );
 
 CREATE TABLE Filmes (
-    ID NUMBER PRIMARY KEY,
-    ID_Midia NUMBER,
-    Diretor VARCHAR2(100),
-    Duracao NUMBER(3),
+    ID INT PRIMARY KEY,
+    IdMidia INT,
+    Diretor VARCHAR(100),
+    Duracao INT,
     FOREIGN KEY (ID_Midia) REFERENCES Midias(ID) ON DELETE CASCADE
 );
 
 CREATE TABLE Musicas (
-    ID NUMBER PRIMARY KEY,
-    ID_Midia NUMBER,
-    Artista VARCHAR2(100),
-    Duracao NUMBER(4),
+    ID INT PRIMARY KEY,
+    IdMidia INT,
+    Artista VARCHAR(100),
+    Duracao INT,
     FOREIGN KEY (ID_Midia) REFERENCES Midias(ID) ON DELETE CASCADE
 );
 
 CREATE TABLE Livros (
-    ID NUMBER PRIMARY KEY,
-    ID_Midia NUMBER,
-    Autor VARCHAR2(127),
-    TotalPag NUMBER,
+    ID INT PRIMARY KEY,
+    IdMidia INT,
+    Autor VARCHAR(127),
+    TotalPag INT,
     FOREIGN KEY (ID_Midia) REFERENCES Midias(ID) ON DELETE CASCADE
 );
 
 CREATE TABLE Series (
-    ID NUMBER PRIMARY KEY,
-    ID_Midia NUMBER,
-    Diretor VARCHAR2(127),
-    QntEps NUMBER(3),
+    ID INT PRIMARY KEY,
+    IdMidia INT,
+    Diretor VARCHAR(127),
+    QntEps INT,
     FOREIGN KEY (ID_Midia) REFERENCES Midias(ID) ON DELETE CASCADE
 );
 
 CREATE TABLE Avaliacoes (
-    ID NUMBER PRIMARY KEY,
-    ID_Midia NUMBER,
-    Nota NUMBER(2),
-    Avaliacao CLOB,
+    ID INT PRIMARY KEY,
+    IdMidia INT,
+    Nota INT,
+    Avaliacao TEXT,
     DataAvaliacao DATE,
-    FOREIGN KEY (ID_Midia) REFERENCES Midias(ID) ON DELETE CASCADE
+    FOREIGN KEY (ID_Midia) REFERENCES Midias(ID)
 );

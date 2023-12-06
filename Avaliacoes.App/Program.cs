@@ -1,7 +1,9 @@
 using Avaliacoes.App.Infra;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Avaliacoes.App
 {
+   
     internal static class Program
     {
         /// <summary>
@@ -14,7 +16,7 @@ namespace Avaliacoes.App
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormPrincipal());
+            Application.Run(ConfigureDI.ServicesProvider!.GetService<FormPrincipal>());
         }
     }
 }

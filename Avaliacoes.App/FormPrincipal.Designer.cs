@@ -34,12 +34,12 @@
             tabAvaliacoes = new TabPage();
             flowLayoutAva = new FlowLayoutPanel();
             tabNewAva = new TabPage();
+            lbMidias = new ListBox();
             txtNota = new ReaLTaiizor.Controls.MaterialMaskedTextBox();
             lRating = new ReaLTaiizor.Controls.MaterialLabel();
             btnPublicar = new ReaLTaiizor.Controls.MaterialButton();
-            materialListBox1 = new ReaLTaiizor.Controls.MaterialListBox();
             cboTipoMidia = new ReaLTaiizor.Controls.MaterialComboBox();
-            materialRichTextBox1 = new ReaLTaiizor.Controls.MaterialRichTextBox();
+            txtavaliacao = new ReaLTaiizor.Controls.MaterialRichTextBox();
             lTitleNewAval = new ReaLTaiizor.Controls.MaterialLabel();
             lHint1 = new ReaLTaiizor.Controls.MaterialLabel();
             imageList1 = new ImageList(components);
@@ -76,6 +76,7 @@
             tabAvaliacoes.TabIndex = 0;
             tabAvaliacoes.Text = "Avaliações";
             tabAvaliacoes.UseVisualStyleBackColor = true;
+            tabAvaliacoes.Enter += tabAvaliacoes_Enter;
             // 
             // flowLayoutAva
             // 
@@ -88,12 +89,12 @@
             // 
             // tabNewAva
             // 
+            tabNewAva.Controls.Add(lbMidias);
             tabNewAva.Controls.Add(txtNota);
             tabNewAva.Controls.Add(lRating);
             tabNewAva.Controls.Add(btnPublicar);
-            tabNewAva.Controls.Add(materialListBox1);
             tabNewAva.Controls.Add(cboTipoMidia);
-            tabNewAva.Controls.Add(materialRichTextBox1);
+            tabNewAva.Controls.Add(txtavaliacao);
             tabNewAva.Controls.Add(lTitleNewAval);
             tabNewAva.Controls.Add(lHint1);
             tabNewAva.ImageKey = "form.png";
@@ -104,6 +105,15 @@
             tabNewAva.TabIndex = 1;
             tabNewAva.Text = "Escrever Avaliação";
             tabNewAva.UseVisualStyleBackColor = true;
+            // 
+            // lbMidias
+            // 
+            lbMidias.FormattingEnabled = true;
+            lbMidias.ItemHeight = 20;
+            lbMidias.Location = new Point(714, 118);
+            lbMidias.Name = "lbMidias";
+            lbMidias.Size = new Size(354, 504);
+            lbMidias.TabIndex = 2;
             // 
             // txtNota
             // 
@@ -180,20 +190,7 @@
             btnPublicar.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnPublicar.UseAccentColor = false;
             btnPublicar.UseVisualStyleBackColor = true;
-            // 
-            // materialListBox1
-            // 
-            materialListBox1.BackColor = Color.White;
-            materialListBox1.BorderColor = Color.LightGray;
-            materialListBox1.Depth = 0;
-            materialListBox1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialListBox1.Location = new Point(714, 118);
-            materialListBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialListBox1.Name = "materialListBox1";
-            materialListBox1.SelectedIndex = -1;
-            materialListBox1.SelectedItem = null;
-            materialListBox1.Size = new Size(354, 516);
-            materialListBox1.TabIndex = 2;
+            btnPublicar.Click += btnPublicar_Click;
             // 
             // cboTipoMidia
             // 
@@ -219,21 +216,22 @@
             cboTipoMidia.Size = new Size(354, 49);
             cboTipoMidia.StartIndex = 0;
             cboTipoMidia.TabIndex = 1;
+            cboTipoMidia.SelectedIndexChanged += cboTipoMidia_SelectedIndexChanged;
             // 
-            // materialRichTextBox1
+            // txtavaliacao
             // 
-            materialRichTextBox1.BackColor = Color.FromArgb(255, 255, 255);
-            materialRichTextBox1.BorderStyle = BorderStyle.None;
-            materialRichTextBox1.Depth = 0;
-            materialRichTextBox1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialRichTextBox1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialRichTextBox1.Hint = "";
-            materialRichTextBox1.Location = new Point(33, 107);
-            materialRichTextBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialRichTextBox1.Name = "materialRichTextBox1";
-            materialRichTextBox1.Size = new Size(623, 457);
-            materialRichTextBox1.TabIndex = 0;
-            materialRichTextBox1.Text = "";
+            txtavaliacao.BackColor = Color.FromArgb(255, 255, 255);
+            txtavaliacao.BorderStyle = BorderStyle.None;
+            txtavaliacao.Depth = 0;
+            txtavaliacao.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtavaliacao.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            txtavaliacao.Hint = "";
+            txtavaliacao.Location = new Point(33, 107);
+            txtavaliacao.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            txtavaliacao.Name = "txtavaliacao";
+            txtavaliacao.Size = new Size(623, 457);
+            txtavaliacao.TabIndex = 0;
+            txtavaliacao.Text = "";
             // 
             // lTitleNewAval
             // 
@@ -299,12 +297,12 @@
         private ImageList imageList1;
         private FlowLayoutPanel flowLayoutAva;
         private ReaLTaiizor.Controls.MaterialLabel lTitleNewAval;
-        private ReaLTaiizor.Controls.MaterialRichTextBox materialRichTextBox1;
+        private ReaLTaiizor.Controls.MaterialRichTextBox txtavaliacao;
         private ReaLTaiizor.Controls.MaterialComboBox cboTipoMidia;
-        private ReaLTaiizor.Controls.MaterialListBox materialListBox1;
         private ReaLTaiizor.Controls.MaterialLabel lRating;
         private ReaLTaiizor.Controls.MaterialButton btnPublicar;
         private ReaLTaiizor.Controls.MaterialMaskedTextBox txtNota;
         private ReaLTaiizor.Controls.MaterialLabel lHint1;
+        private ListBox lbMidias;
     }
 }

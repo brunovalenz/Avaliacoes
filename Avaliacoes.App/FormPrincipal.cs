@@ -3,6 +3,7 @@ using Avaliacoes.App.Infra;
 using Avaliacoes.Domain.Base;
 using Avaliacoes.App.Models;
 using Avaliacoes.Domain.Entities;
+using Avaliacoes.Service.Validators;
 using Microsoft.Extensions.DependencyInjection;
 using ReaLTaiizor.Forms;
 
@@ -15,68 +16,91 @@ namespace Avaliacoes.App
         private readonly IBaseService<Musica> _musicaService;
         private readonly IBaseService<Livro> _livroService;
         private readonly IBaseService<Serie> _serieService;
+        private readonly IBaseService<Midia> _midiaService;
+        private readonly IBaseService<Avaliacao> _avaliacaoService;
 
-        public FormPrincipal(IBaseService<Filme> filmeService, IBaseService<Musica> musicaService, IBaseService<Livro> livroService, IBaseService<Serie> serieService)
+        public static FormPrincipal instance = null;
+
+        public FormPrincipal(IBaseService<Filme> filmeService, IBaseService<Musica> musicaService, IBaseService<Livro> livroService, IBaseService<Serie> serieService, IBaseService<Midia> midiaService, IBaseService<Avaliacao> avaliacaoService)
         {
             _filmeService = filmeService;
             _musicaService = musicaService;
             _livroService = livroService;
             _serieService = serieService;
+            _midiaService = midiaService;
+            _avaliacaoService = avaliacaoService;
             InitializeComponent();
-            CarregarCombo();
+            CarregarMidias();
+            instance = this;
 
-            usMostraAval user = new usMostraAval();
-            flowLayoutAva.Controls.Add(user);
-            user.lTitulo.Text = "Primeiro filme";
-            user.lDataDaAva.Text = "02/12/2023";
-            user.lNota.Text = "10";
-            user.ltextAva.Text = "Uma descricao qualquer";
-            usMostraAval user2 = new usMostraAval();
-            user2.lTitulo.Text = "Segunda Musica";
-            user2.lDataDaAva.Text = "15/12/2023";
-            user2.lNota.Text = "8";
-            test(user2);
-            flowLayoutAva.Controls.Add(user2);
-
+            var firme = _filmeService.Get<FilmeModel>(new List<String>() { "Midia" }).FirstOrDefault(x => x.IdMidia == 1);
+            flowLayoutAva.Controls.Add(new usMostraAval(firme.Titulo, DateTime.Now, 5, "tester deu certo", "a descricao deu certo",firme.AnoLancamento, firme.Classificacao, "Diretor", firme.Diretor, "Duração:", firme.Duracao.ToString()));
         }
 
-        private void test(usMostraAval a)
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                a.ltextAva.Text += " Champson";
-            }
-        }
-
-        private void CarregarCombo()
+        public void CarregarMidias()
         {
             switch (cboTipoMidia.SelectedIndex)
             {
                 case 0: // filme
-                    cboTipoMidia.ValueMember = "Id";
-                    cboTipoMidia.DisplayMember = "Titulo";
-                    cboTipoMidia.DataSource = _filmeService.Get<FilmeModel>().ToList();
+                    lbMidias.ValueMember = "Titulo";
+                    lbMidias.DisplayMember = "Titulo";
+                    lbMidias.DataSource = _filmeService.Get<FilmeModel>(new List<String>() { "Midia" }).ToList();
                     break;
 
                 case 1: // musica
-                    cboTipoMidia.ValueMember = "Id";
-                    cboTipoMidia.DisplayMember = "Titulo";
-                    cboTipoMidia.DataSource = _musicaService.Get<MusicaModel>().ToList();
+                    lbMidias.ValueMember = "Titulo";
+                    lbMidias.DisplayMember = "Titulo";
+                    lbMidias.DataSource = _musicaService.Get<MusicaModel>(new List<String>() { "Midia" }).ToList();
                     break;
 
                 case 2: // livro
-                    cboTipoMidia.ValueMember = "Id";
-                    cboTipoMidia.DisplayMember = "Titulo";
-                    cboTipoMidia.DataSource = _livroService.Get<LivroModel>().ToList();
+                    lbMidias.ValueMember = "Titulo";
+                    lbMidias.DisplayMember = "Titulo";
+                    lbMidias.DataSource = _livroService.Get<LivroModel>(new List<String>() { "Midia" }).ToList();
                     break;
 
                 case 3: // serie
-                    cboTipoMidia.ValueMember = "Id";
-                    cboTipoMidia.DisplayMember = "Titulo";
-                    cboTipoMidia.DataSource = _serieService.Get<SerieModel>().ToList();
+                    lbMidias.ValueMember = "Titulo";
+                    lbMidias.DisplayMember = "Titulo";
+                    lbMidias.DataSource = _serieService.Get<SerieModel>(new List<String>() { "Midia" }).ToList();
                     break;
             }
 
+        }
+
+        private void PreencheObjeto(Avaliacao avaliacao)
+        {
+            avaliacao.Avaliacao2 = txtavaliacao.Text;
+            try
+            {
+                avaliacao.Nota = float.Parse(txtNota.Text);
+                avaliacao.DataAvaliacao = DateTime.Now;
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message, @"Avaliações", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            var midia = _midiaService.Get<Midia>().FirstOrDefault(x => x.Titulo == lbMidias.SelectedValue.ToString());
+            avaliacao.Midia = midia;
+        }
+
+        private void CarregaAvaliacoes()
+        {
+            flowLayoutAva.Controls.Clear();
+            foreach (var aval in _avaliacaoService.Get<AvaliacaoModel>(new List<String>() { "Midia" }).ToList())
+            {
+                var midia = _midiaService.GetById<Midia>(aval.IdMidia);
+                var filme = _filmeService.Get<FilmeModel>(new List<String>() { "Midia" }).FirstOrDefault(x => x.IdMidia == midia.Id);
+                var livro = _livroService.Get<LivroModel>(new List<String>() { "Midia" }).FirstOrDefault(x => x.IdMidia == midia.Id);
+                var musica = _musicaService.Get<MusicaModel>(new List<String>() { "Midia" }).FirstOrDefault(x => x.IdMidia == midia.Id);
+                var serie = _serieService.Get<SerieModel>(new List<String>() { "Midia" }).FirstOrDefault(x => x.IdMidia == midia.Id);
+
+                if (filme != null) flowLayoutAva.Controls.Add(new usMostraAval(aval.Titulo, aval.DataAvaliacao, aval.Nota, aval.Avaliacao2, filme.Descricao, filme.AnoLancamento, filme.Classificacao,"Diretor",filme.Diretor,"Duração -",filme.Duracao.ToString()));
+                if (livro != null) flowLayoutAva.Controls.Add(new usMostraAval(aval.Titulo, aval.DataAvaliacao, aval.Nota, aval.Avaliacao2, livro.Descricao, livro.AnoLancamento, livro.Classificacao, "Autor", livro.Autor, "Total pag. -", livro.TotalPag.ToString()));
+                if (musica != null) flowLayoutAva.Controls.Add(new usMostraAval(aval.Titulo, aval.DataAvaliacao, aval.Nota, aval.Avaliacao2, musica.Descricao, musica.AnoLancamento, musica.Classificacao, "Artista", musica.Artista, "Duração -", musica.Duracao.ToString()));
+                if (serie != null) flowLayoutAva.Controls.Add(new usMostraAval(aval.Titulo, aval.DataAvaliacao, aval.Nota, aval.Avaliacao2, serie.Descricao, serie.AnoLancamento, serie.Classificacao, "Diretor", serie.Diretor, "Quantidade Ep. -", serie.QntEps.ToString()));
+            }
         }
 
         private void Exibeformulario<TFormlario>() where TFormlario : Form
@@ -94,6 +118,12 @@ namespace Avaliacoes.App
             {
                 e.Cancel = true;
             }
+        }
+
+        protected void LimpaCampos()
+        {
+            txtavaliacao.Clear();
+            txtNota.Clear();
         }
 
         private void lHint1_Click(object sender, EventArgs e)
@@ -118,8 +148,35 @@ namespace Avaliacoes.App
             }
         }
 
+        private void cboTipoMidia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregarMidias();
+        }
 
+        private void lbMidias_MouseEnter(object sender, EventArgs e)
+        {
+            CarregarMidias();
+        }
 
+        private void btnPublicar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Avaliacao avaliacao = new Avaliacao();
+                PreencheObjeto(avaliacao);
+                _avaliacaoService.Add<Avaliacao, Avaliacao, AvaliacaoValidator>(avaliacao);
+                MessageBox.Show($"A sua avaliação foi cadastrada!", @"Avaliações", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LimpaCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, @"Avaliações", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
+        private void tabAvaliacoes_Enter(object sender, EventArgs e)
+        {
+            CarregaAvaliacoes();
+        }
     }
 }

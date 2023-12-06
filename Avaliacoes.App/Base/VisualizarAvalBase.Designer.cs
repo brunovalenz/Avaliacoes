@@ -89,7 +89,7 @@ partial class VisualizarAvalBase
         txtDinamico2.Depth = 0;
         txtDinamico2.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
         txtDinamico2.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-        txtDinamico2.Location = new Point(186, 301);
+        txtDinamico2.Location = new Point(194, 301);
         txtDinamico2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
         txtDinamico2.Name = "txtDinamico2";
         txtDinamico2.Size = new Size(40, 29);
@@ -102,7 +102,7 @@ partial class VisualizarAvalBase
         lDynamic2.Depth = 0;
         lDynamic2.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
         lDynamic2.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-        lDynamic2.Location = new Point(23, 301);
+        lDynamic2.Location = new Point(10, 301);
         lDynamic2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
         lDynamic2.Name = "lDynamic2";
         lDynamic2.Size = new Size(120, 29);
@@ -133,7 +133,7 @@ partial class VisualizarAvalBase
         lDynamic1.Depth = 0;
         lDynamic1.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
         lDynamic1.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-        lDynamic1.Location = new Point(76, 195);
+        lDynamic1.Location = new Point(10, 195);
         lDynamic1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
         lDynamic1.Name = "lDynamic1";
         lDynamic1.Size = new Size(114, 29);
